@@ -14,7 +14,11 @@
 
 1. In December 2014, Gangnam Style's video clip surpassed one billion views. However, this value exceeds a 32-bit encoding This therefore resulted in the value 2, 147, 483, 647 being displayed instead of the true value of the view counter. This bug is local, because it's intern to Youtube functioning. It didn't have any big consequences for the users, apart from seeing a strange value on the video site. For the company, this was not a major bug, and it was resolved quickly and simply. Nevertheless, this bug could have been avoided by adding in the test cases, values exceeding 32-bit encoding.
 
-2.
+2. For this issue: https://issues.apache.org/jira/projects/COLLECTIONS/issues/COLLECTIONS-701?filter=doneissues
+
+It's a local bug, when The add() execution for the SetUniqueList traps into an infinite recursion and gir a stackOverflow which crashes the program.
+The solution was to do in the add() fuction : set.add() first and then do the super.add().
+Yes they add tests to see if the bug is still present
 
 3. At Netflix, they use something called `Chaos Monkey` to test their system. This is a tool that randomly kills instances of their services. This allows them to test the system's resilience to failures. The experiments are performed in production, and they are not limited to the services themselves, but also to the infrastructure. The variables they observe are the response time of the services, the number of errors, and the number of requests. The main results they obtained are that the system is resilient to failures, and that the system is able to recover quickly from failures. Netflix is not the only company performing these experiments. Other companies such as Amazon, Google, and Microsoft also perform these experiments. These experiments could be performed in other organizations by simulating failures in the system, and observing the system's behavior. The kind of experiment that could be performed is to simulate a failure in the system, and observe the system's behavior. The system variables to observe during the experiments are the response time of the services, the number of errors, and the number of requests.
 
